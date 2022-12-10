@@ -6,30 +6,55 @@ sidebar_position: 1
 
 A web app can also request the user to send a transaction, by using Omega Wallet API:
 
-```javascript
-export type TypeRequest = 'transfer_coin' | 'transfer_nft' | 'register_asset' | 'create_collection' | 'create_nft'
-export type SignTransactionRequest =
-    | {
-          type: 'transfer_coin'
-          data: TransferCoinTransaction
-      }
-    | {
-          type: 'transfer_nft'
-          data: TransferNFTTransaction
-      }
-    | {
-          type: 'register_asset'
-          data: RegisterAssetTransaction
-      }
-    | {
-          type: 'create_collection'
-          data: CreateCollectionTransaction
-      }
-    | {
-          type: 'create_nft'
-          data: CreateNFTTransaction
-      }
+## Interface
 
+```typescript
+export namespace DappTypes {
+    export interface TransferCoinTransaction {
+        amount: string
+        assetId: string
+        to: string
+        gasLimit?: string
+        gasPrice?: string
+    }
+    export interface TransferNFTTransaction {
+        // Coming soon
+    }
+    export interface RegisterAssetTransaction {
+        assetId: string
+    }
+    export interface CreateCollectionTransaction {
+        // Coming soon
+    }
+    export interface CreateNFTTransaction {}
+    export type TypeRequest = 'transfer_coin' | 'transfer_nft' | 'register_asset' | 'create_collection' | 'create_nft'
+    export type SignTransactionRequest =
+        | {
+              type: 'transfer_coin'
+              data: TransferCoinTransaction
+          }
+        | {
+              type: 'transfer_nft'
+              data: TransferNFTTransaction
+          }
+        | {
+              type: 'register_asset'
+              data: RegisterAssetTransaction
+          }
+        | {
+              type: 'create_collection'
+              data: CreateCollectionTransaction
+          }
+        | {
+              type: 'create_nft'
+              data: CreateNFTTransaction
+          }
+}
+```
+
+### transfer_coin
+
+```typescript
 await (window as any). omega.signTransaction({
     type: 'transfer_coin',
     data: {
@@ -39,3 +64,20 @@ await (window as any). omega.signTransaction({
     },
 })
 ```
+
+### register_asset
+
+```typescript
+await (window as any). omega.signTransaction({
+    type: 'register_asset',
+    data: {
+        assetId: '0x1::coin::CoinStore<0x1::aptos_coin::AptosCoin>'
+    },
+})
+```
+
+### transfer_nft
+
+### create_collection
+
+### create_nft

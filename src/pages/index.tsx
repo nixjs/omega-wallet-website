@@ -22,7 +22,11 @@ export default function Home(): JSX.Element {
                 DApp, DeFi, and acts as your portal to the Web3 world.
               </h2>
               <p className={styles.description}>
-                <Link href="#" target="_blank" rel="noopener noreferrer">
+                <Link
+                  href="https://chrome.google.com/webstore/detail/nix-aptos-wallet/mobgoaaconpcicgajnpclkelkmjigiak"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
                   Omega Wallet
                 </Link>{" "}
                 makes it safe & easy for you to store, buy, send, receive, swap

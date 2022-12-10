@@ -40,7 +40,7 @@ await window.omega.getNetwork(): Promise<{
         faucetURL: string
         explorerURL: string
         nativeToken: string
-        type: 'testnet' | 'mainnet' | 'Devnet'
+        type: 'testnet' | 'mainnet' | 'devnet'
     }>
 ```
 
@@ -54,7 +54,7 @@ await window.omega.getNetworks(): Promise<{
         faucetURL: string
         explorerURL: string
         nativeToken: string
-        type: 'testnet' | 'mainnet' | 'Devnet'
+        type: 'testnet' | 'mainnet' | 'devnet'
     }[]>
 ```
 
