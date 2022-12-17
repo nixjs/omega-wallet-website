@@ -18,7 +18,10 @@ export namespace DappTypes {
         gasPrice?: string
     }
     export interface TransferNFTTransaction {
-        // Coming soon
+        to: string
+        NFT: AssetTypes.NFT
+        gasLimit?: string
+        gasPrice?: string
     }
     export interface RegisterAssetTransaction {
         assetId: string
@@ -55,7 +58,7 @@ export namespace DappTypes {
 ### transfer_coin
 
 ```typescript
-await (window as any). omega.signTransaction({
+await window.omega.signTransaction({
     type: 'transfer_coin',
     data: {
         amount: '1',
@@ -68,7 +71,7 @@ await (window as any). omega.signTransaction({
 ### register_asset
 
 ```typescript
-await (window as any). omega.signTransaction({
+await window.omega.signTransaction({
     type: 'register_asset',
     data: {
         assetId: '0x1::coin::CoinStore<0x1::aptos_coin::AptosCoin>'
@@ -78,6 +81,26 @@ await (window as any). omega.signTransaction({
 
 ### transfer_nft
 
+```typescript
+await window.omega.signTransaction({
+    type: 'transfer_nft',
+    data: {
+            NFT: {
+            collection: 'Collection',
+            id: '0x8e11ce8',
+            name: 'NFT',
+            description: 'This is a NFT',
+            creator: '0x8e11ce8e16b3d9701f08df9171a790ebdbca0a78010245427052b012faecc8a7',
+            uri: 'https://www.omega-wallet.app/img/omega-dark.svg'
+        }
+    },
+})
+```
+
 ### create_collection
 
+Coming soon
+
 ### create_nft
+
+Coming soon

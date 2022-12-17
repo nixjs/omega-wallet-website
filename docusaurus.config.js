@@ -60,8 +60,8 @@ const config = {
         title: "Omega Wallet",
         logo: {
           alt: "Omega Wallet Logo",
-          src: "img/Aptos-light.svg",
-          srcDark: "img/Aptos-dark.svg",
+          src: "img/omega-light.svg",
+          srcDark: "img/omega-dark.svg",
         },
         items: [
           {

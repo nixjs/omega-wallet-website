@@ -6,9 +6,13 @@ sidebar_position: 1
 
 ## What is Omega Wallet?
 
-Browser Extension acts as your portal to the Web3 world. A friendly crypto wallet
+A secure blockchain wallet that supports: **APTOS**, **SUI**, **EVM-based** blockchains, DApp, DeFi, and acts as your portal to the Web3 world.
 
-**Omega Wallet** makes it safe & easy for you to store, buy, send, receive, swap tokens and collect NFTs on the Aptos/SUI blockchain.
+A non-custodial, multi-chain cryptocurrency & assets wallet and DeFi gateway, designed to seamlessly connect users to the Web3 world safely and securely.
+
+We Keep You Safe. You have sole control of your private keys. The private keys are encrypted, stored securely on your device, and never left it.
+
+**Omega Wallet** enables users to store, buy, send, convert, and swap crypto tokens & NFT on multiple blockchains. It supports not only the most popular EVM-based blockchains but also the latest blockchains such as Aptos and Sui.
 
 ## Install Chrome Extensions
 

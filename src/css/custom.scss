@@ -8,6 +8,7 @@
 @use "./modern-normalize";
 @use "./doc-page";
 @use "./base";
+@use "./grid";
 @use "./admonition";
 @use "./table";
 @use "./code";
@@ -123,6 +124,8 @@
   --ifm-navbar-padding-vertical: 0;
   --ifm-navbar-item-padding-vertical: 0;
 
+  --ifm-heading-font-family: "Domine", -apple-system, BlinkMacSystemFont, Inter,
+    Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI emoji";
   --ifm-font-family-base: "Poppins", -apple-system, BlinkMacSystemFont, Inter,
     Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI emoji";
   --ifm-font-family-monospace: "SFMono-Regular", "Roboto Mono", Consolas,

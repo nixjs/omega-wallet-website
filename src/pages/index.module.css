@@ -2,6 +2,17 @@
  * CSS files with the .module.css suffix will be treated as CSS modules
  * and scoped locally.
  */
+.blockBrowser > img {
+  width: 72px;
+  max-width: 65%;
+  margin: 0 auto;
+}
+.blockBrowser > .button {
+  min-width: 0;
+  width: 100%;
+  padding: 0 5px;
+  margin: 25px 0 0;
+}
 
 .content {
   padding-top: 2rem;
@@ -12,10 +23,33 @@
   font-size: 3.8rem;
   margin-bottom: 2rem;
 }
+
+.heading > span {
+  color: #ff2759;
+  position: relative;
+  text-decoration: underline;
+  text-decoration-thickness: 4px;
+}
+
+.highlightYellow,
+.highlightRed {
+  position: relative;
+  text-decoration: underline;
+  text-decoration-thickness: 4px;
+}
+.highlightRed {
+  color: #ff2759;
+}
+
+.highlightYellow {
+  color: #fedc00;
+}
+
 .subHeading {
   font-size: 2.5rem;
   line-height: 1.5em;
   margin-bottom: 1.5rem;
+  font-weight: 500;
 }
 
 .description {
@@ -28,6 +62,19 @@
   }
   .subHeading {
     font-size: 1.5rem;
+  }
+}
+
+@media screen and (max-width: 560px) {
+  .heading {
+    font-size: 2rem;
+  }
+  .subHeading {
+    font-size: 1.25rem;
+  }
+  .highlightRed,
+  .highlightYellow {
+    text-decoration-thickness: 1px;
   }
 }
 @media screen and (max-width: 999px) {
@@ -61,4 +108,36 @@
   .buttons {
     margin-top: 2rem;
   }
+}
+
+.trust {
+  padding-bottom: 4.5rem;
+}
+.block {
+  border: 1px solid #ffffff1a;
+  border-radius: 17px;
+  padding: 32px 50px 40px 44px;
+  position: relative;
+  z-index: 1;
+}
+
+.blockIcon {
+  background: #ffffff1a;
+  border-radius: 50%;
+  height: 60px;
+  width: 60px;
+}
+
+.blockHeading {
+  font-size: 24px;
+  font-weight: 500;
+  padding: 26px 0 20px;
+}
+
+.trust {
+  padding-bottom: 4.5rem;
+}
+
+.partnership {
+  padding: 4.5rem 0 3.5rem;
 }
