@@ -45,7 +45,7 @@ export namespace DappTypes {
             data: RegisterAssetTransaction
         }
         | {
-            tykindpe: 'create_collection'
+            kind: 'create_collection'
             data: CreateCollectionTransaction
         }
         | {
