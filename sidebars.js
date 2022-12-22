@@ -34,6 +34,7 @@ const sidebars = {
         "integrating/signing-a-message",
         "integrating/sending-a-transaction",
         "integrating/errors",
+        "integrating/example-dapp-integration",
       ],
     },
     {
