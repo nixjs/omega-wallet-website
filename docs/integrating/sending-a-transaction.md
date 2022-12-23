@@ -7,70 +7,94 @@ sidebar_position: 1
 After your web app is connected to Omega Wallet, the web app can prompt the user to sign and send transactions to the SUI/Aptos blockchain.
 
 ```typescript
-await window.omega.signTransaction({
-          kind: 'transfer_coin'
-          data: TransferCoinTransaction
-      }
-    | {
-          kind: 'transfer_nft'
-          data: TransferNFTTransaction
-      }
-    | {
-          kind: 'register_asset'
-          data: RegisterAssetTransaction
-      }
-    | {
-          kind: 'create_collection'
-          data: CreateCollectionTransaction
-      }
-    | {
-          kind: 'create_nft'
-          data: CreateNFTTransaction
-      }
-    | {
-          kind: 'sui_moveCall'
-          data: MoveCallTransaction
-      }
-    | {
-          kind: 'sui_transferSui'
-          data: TransferSuiTransaction
-      }
-    | {
-          kind: 'sui_transferObject'
-          data: TransferObjectTransaction
-      }
-    | {
-          kind: 'sui_mergeCoin'
-          data: MergeCoinTransaction
-      }
-    | {
-          kind: 'sui_splitCoin'
-          data: SplitCoinTransaction
-      }
-    | {
-          kind: 'sui_pay'
-          data: PayTransaction
-      }
-    | {
-          kind: 'sui_paySui'
-          data: PaySuiTransaction
-      }
-    | {
-          kind: 'sui_payAllSui'
-          data: PayAllSuiTransaction
-      }
-    | {
-          kind: 'sui_publish'
-          data: PublishTransaction
-      } 
-    | {
-          kind: 'aptos_signRawTransaction'
-          data: AptosRawTransaction
-      }
-    | {
-          kind: 'aptos_signBCSTransaction'
-          data: AptosBCSTransaction
-      })
+export namespace DappTypes {
+    export interface TransferCoinTransaction {
+        amount: string
+        assetId: string
+        to: string
+        gasLimit?: string
+        gasPrice?: string
+    }
+    export interface TransferNFTTransaction {
+        to: string
+        NFT: AssetTypes.NFT
+        gasLimit?: string
+        gasPrice?: string
+    }
+    export interface RegisterAssetTransaction {
+        assetId: string
+    }
+    export interface CreateCollectionTransaction {
+        // Coming soon
+    }
+    export interface CreateNFTTransaction {}
+
+    export type SignTransactionRequest =
+        | {
+            kind: 'transfer_coin'
+            data: TransferCoinTransaction
+        }
+        | {
+            kind: 'transfer_nft'
+            data: TransferNFTTransaction
+        }
+        | {
+            kind: 'register_asset'
+            data: RegisterAssetTransaction
+        }
+        | {
+            kind: 'create_collection'
+            data: CreateCollectionTransaction
+        }
+        | {
+            kind: 'create_nft'
+            data: CreateNFTTransaction
+        }
+        | {
+            kind: 'moveCall'
+            data: MoveCallTransaction
+        }
+        | {
+            kind: 'transferSui'
+            data: TransferSuiTransaction
+            // https://github.com/MystenLabs/sui/blob/main/sdk/typescript/src/signers/txn-data-serializers/txn-data-serializer.ts
+        }
+        | {
+            kind: 'transferObject'
+            data: TransferObjectTransaction
+            // https://github.com/MystenLabs/sui/blob/main/sdk/typescript/src/signers/txn-data-serializers/txn-data-serializer.ts
+        }
+        | {
+            kind: 'mergeCoin'
+            data: MergeCoinTransaction
+            // https://github.com/MystenLabs/sui/blob/main/sdk/typescript/src/signers/txn-data-serializers/txn-data-serializer.ts
+        }
+        | {
+            kind: 'splitCoin'
+            data: SplitCoinTransaction
+            // https://github.com/MystenLabs/sui/blob/main/sdk/typescript/src/signers/txn-data-serializers/txn-data-serializer.ts
+        }
+        | {
+            kind: 'pay'
+            data: PayTransaction
+            // https://github.com/MystenLabs/sui/blob/main/sdk/typescript/src/signers/txn-data-serializers/txn-data-serializer.ts
+        }
+        | {
+            kind: 'paySui'
+            data: PaySuiTransaction
+            // https://github.com/MystenLabs/sui/blob/main/sdk/typescript/src/signers/txn-data-serializers/txn-data-serializer.ts
+        }
+        | {
+            kind: 'payAllSui'
+            data: PayAllSuiTransaction
+            // https://github.com/MystenLabs/sui/blob/main/sdk/typescript/src/signers/txn-data-serializers/txn-data-serializer.ts
+        }
+        | {
+            kind: 'publish'
+            data: PublishTransaction
+            // https://github.com/MystenLabs/sui/blob/main/sdk/typescript/src/signers/txn-data-serializers/txn-data-serializer.ts
+        }
+    }
 ```
 
 ## Common
