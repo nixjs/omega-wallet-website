@@ -42,6 +42,11 @@ const sidebars = {
       label: "Privacy policy",
       id: "privacy-policy",
     },
+    {
+      type: "doc",
+      label: "Terms of the services",
+      id: "terms",
+    },
   ],
 };
 

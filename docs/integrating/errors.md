@@ -23,8 +23,10 @@ When making requests to Omega Wallet in Establishing a Connection, Sending a Tra
 | `100100012` | `SIGN_FAILED`          | Failed to sign transaction              |
 | `100100013` | `PERSONAL_SIGN_FAILED` | Failed to sign message                  |
 | `100100014` | `GET_BALANCE_FAILED`   | Failed to get balance                   |
-| `100100015` | `GET_ASSET_FAILED`     | Failed to get asset                     |
-| `100100016` | `PROVIDER_NOT_FOUND`   | Failed to get provider (blockchain type)|
+| `100100015` | `GET_BALANCE_FAILED`   | Failed to get balances                  |
+| `100100016` | `GET_ASSET_FAILED`     | Failed to get asset                     |
+| `100100017` | `PROVIDER_NOT_FOUND`   | Failed to get provider (blockchain type)|
+| `100100018` | `INVALID_PARAMETERS`   | Invalid parameters                      |
 
 Typically, these errors will be easily parsable and have both a code and an explanation. For example:
 

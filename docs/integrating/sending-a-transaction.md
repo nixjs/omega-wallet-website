@@ -4,102 +4,94 @@ sidebar_position: 1
 
 # Send a Transaction
 
-A web app can also request the user to send a transaction, by using Omega Wallet API:
-
-## Interface
+After your web app is connected to Omega Wallet, the web app can prompt the user to sign and send transactions to the SUI/Aptos blockchain.
 
 ```typescript
-export namespace DappTypes {
-    export interface TransferCoinTransaction {
-        amount: string
-        assetId: string
-        to: string
-        gasLimit?: string
-        gasPrice?: string
-    }
-    export interface TransferNFTTransaction {
-        to: string
-        NFT: AssetTypes.NFT
-        gasLimit?: string
-        gasPrice?: string
-    }
-    export interface RegisterAssetTransaction {
-        assetId: string
-    }
-    export interface CreateCollectionTransaction {
-        // Coming soon
-    }
-    export interface CreateNFTTransaction {}
-
-    export type SignTransactionRequest =
-        | {
-            kind: 'transfer_coin'
-            data: TransferCoinTransaction
-        }
-        | {
-            kind: 'transfer_nft'
-            data: TransferNFTTransaction
-        }
-        | {
-            kind: 'register_asset'
-            data: RegisterAssetTransaction
-        }
-        | {
-            tykindpe: 'create_collection'
-            data: CreateCollectionTransaction
-        }
-        | {
-            kind: 'create_nft'
-            data: CreateNFTTransaction
-        }
-        | {
-            kind: 'moveCall'
-            data: MoveCallTransaction
-        }
-        | {
-            kind: 'transferSui'
-            data: TransferSuiTransaction
-            // https://github.com/MystenLabs/sui/blob/main/sdk/typescript/src/signers/txn-data-serializers/txn-data-serializer.ts
-        }
-        | {
-            kind: 'transferObject'
-            data: TransferObjectTransaction
-            // https://github.com/MystenLabs/sui/blob/main/sdk/typescript/src/signers/txn-data-serializers/txn-data-serializer.ts
-        }
-        | {
-            kind: 'mergeCoin'
-            data: MergeCoinTransaction
-            // https://github.com/MystenLabs/sui/blob/main/sdk/typescript/src/signers/txn-data-serializers/txn-data-serializer.ts
-        }
-        | {
-            kind: 'splitCoin'
-            data: SplitCoinTransaction
-            // https://github.com/MystenLabs/sui/blob/main/sdk/typescript/src/signers/txn-data-serializers/txn-data-serializer.ts
-        }
-        | {
-            kind: 'pay'
-            data: PayTransaction
-            // https://github.com/MystenLabs/sui/blob/main/sdk/typescript/src/signers/txn-data-serializers/txn-data-serializer.ts
-        }
-        | {
-            kind: 'paySui'
-            data: PaySuiTransaction
-            // https://github.com/MystenLabs/sui/blob/main/sdk/typescript/src/signers/txn-data-serializers/txn-data-serializer.ts
-        }
-        | {
-            kind: 'payAllSui'
-            data: PayAllSuiTransaction
-            // https://github.com/MystenLabs/sui/blob/main/sdk/typescript/src/signers/txn-data-serializers/txn-data-serializer.ts
-        }
-        | {
-            kind: 'publish'
-            data: PublishTransaction
-            // https://github.com/MystenLabs/sui/blob/main/sdk/typescript/src/signers/txn-data-serializers/txn-data-serializer.ts
-        }
-    }
+await window.omega.signTransaction({
+          kind: 'transfer_coin'
+          data: TransferCoinTransaction
+      }
+    | {
+          kind: 'transfer_nft'
+          data: TransferNFTTransaction
+      }
+    | {
+          kind: 'register_asset'
+          data: RegisterAssetTransaction
+      }
+    | {
+          kind: 'create_collection'
+          data: CreateCollectionTransaction
+      }
+    | {
+          kind: 'create_nft'
+          data: CreateNFTTransaction
+      }
+    | {
+          kind: 'sui_moveCall'
+          data: MoveCallTransaction
+      }
+    | {
+          kind: 'sui_transferSui'
+          data: TransferSuiTransaction
+      }
+    | {
+          kind: 'sui_transferObject'
+          data: TransferObjectTransaction
+      }
+    | {
+          kind: 'sui_mergeCoin'
+          data: MergeCoinTransaction
+      }
+    | {
+          kind: 'sui_splitCoin'
+          data: SplitCoinTransaction
+      }
+    | {
+          kind: 'sui_pay'
+          data: PayTransaction
+      }
+    | {
+          kind: 'sui_paySui'
+          data: PaySuiTransaction
+      }
+    | {
+          kind: 'sui_payAllSui'
+          data: PayAllSuiTransaction
+      }
+    | {
+          kind: 'sui_publish'
+          data: PublishTransaction
+      } 
+    | {
+          kind: 'aptos_signRawTransaction'
+          data: AptosRawTransaction
+      }
+    | {
+          kind: 'aptos_signBCSTransaction'
+          data: AptosBCSTransaction
+      })
 ```
 
+## Common
+
 ### transfer_coin
+
+- Kind: `transfer_coin`
+
+- Types:
+
+```typescript
+export interface TransferCoinTransaction {
+    amount: string
+    assetId: string
+    to: string
+    gasLimit?: string
+    gasPrice?: string
+}
+```
+
+- Example:
 
 ```typescript
 await window.omega.signTransaction({
@@ -114,6 +106,18 @@ await window.omega.signTransaction({
 
 ### register_asset
 
+- Kind: `register_asset`
+
+- Types:
+
+```typescript
+    export interface RegisterAssetTransaction {
+        assetId: string
+    }
+```
+
+- Example:
+
 ```typescript
 await window.omega.signTransaction({
     kind: 'register_asset',
@@ -124,6 +128,21 @@ await window.omega.signTransaction({
 ```
 
 ### transfer_nft
+
+- Kind: `transfer_nft`
+
+- Types:
+
+```typescript
+export interface TransferNFTTransaction {
+    to: string
+    NFT: AssetTypes.NFT
+    gasLimit?: string
+    gasPrice?: string
+}
+```
+
+- Example:
 
 ```typescript
 await window.omega.signTransaction({
@@ -143,13 +162,34 @@ await window.omega.signTransaction({
 
 ### create_collection
 
+- Kind: `create_collection`
+
 Coming soon
 
 ### create_nft
 
+- Kind: `create_nft`
+
 Coming soon
 
-### [SUI] transferSui
+## SUI
+
+> Only work for SUI blockchain
+
+### transferSui
+
+- Kind: `transferSui`
+
+- Types:
+
+```typescript
+interface TransferSuiTransaction {
+    suiObjectId: ObjectId;
+    gasBudget: number;
+    recipient: SuiAddress;
+    amount: number | null;
+}
+```
 
 Reference: <https://github.com/MystenLabs/sui/blob/main/sdk/typescript/src/signers/txn-data-serializers/txn-data-serializer.ts>
 
@@ -165,7 +205,23 @@ await window.omega.signTransaction({
 })
 ```
 
-### [SUI] moveCall
+### moveCall
+
+- Kind: `moveCall`
+
+- Types:
+
+```typescript
+interface MoveCallTransaction {
+    packageObjectId: ObjectId;
+    module: string;
+    function: string;
+    typeArguments: string[] | TypeTag[];
+    arguments: SuiJsonValue[];
+    gasPayment?: ObjectId;
+    gasBudget: number;
+}
+```
 
 Reference: <https://github.com/MystenLabs/sui/blob/main/sdk/typescript/src/signers/txn-data-serializers/txn-data-serializer.ts>
 
@@ -184,7 +240,20 @@ await window.omega.signTransaction({
 })
 ```
 
-### [SUI] transferObject
+### transferObject
+
+- Kind: `transferObject`
+
+- Types:
+
+```typescript
+interface TransferObjectTransaction {
+    objectId: ObjectId;
+    gasPayment?: ObjectId;
+    gasBudget: number;
+    recipient: SuiAddress;
+}
+```
 
 Reference: <https://github.com/MystenLabs/sui/blob/main/sdk/typescript/src/signers/txn-data-serializers/txn-data-serializer.ts>
 
@@ -200,7 +269,20 @@ await window.omega.signTransaction({
 })
 ```
 
-### [SUI] mergeCoin
+### mergeCoin
+
+- Kind: `mergeCoin`
+
+- Types:
+
+```typescript
+interface MergeCoinTransaction {
+    primaryCoin: ObjectId;
+    coinToMerge: ObjectId;
+    gasPayment?: ObjectId;
+    gasBudget: number;
+}
+```
 
 Reference: <https://github.com/MystenLabs/sui/blob/main/sdk/typescript/src/signers/txn-data-serializers/txn-data-serializer.ts>
 
@@ -216,7 +298,20 @@ await window.omega.signTransaction({
 })
 ```
 
-### [SUI] splitCoin
+### splitCoin
+
+- Kind: `splitCoin`
+
+- Types:
+
+```typescript
+interface SplitCoinTransaction {
+    coinObjectId: ObjectId;
+    splitAmounts: number[];
+    gasPayment?: ObjectId;
+    gasBudget: number;
+}
+```
 
 Reference: <https://github.com/MystenLabs/sui/blob/main/sdk/typescript/src/signers/txn-data-serializers/txn-data-serializer.ts>
 
@@ -232,7 +327,26 @@ await window.omega.signTransaction({
 })
 ```
 
-### [SUI] pay
+### pay
+
+- Kind: `pay`
+
+- Types:
+
+```typescript
+interface PayTransaction {
+    /**
+     * use `provider.selectCoinSetWithCombinedBalanceGreaterThanOrEqual` to
+     * derive a minimal set of coins with combined balance greater than or
+     * equal to sent amounts
+     */
+    inputCoins: ObjectId[];
+    recipients: SuiAddress[];
+    amounts: number[];
+    gasPayment?: ObjectId;
+    gasBudget: number;
+}
+```
 
 Reference: <https://github.com/MystenLabs/sui/blob/main/sdk/typescript/src/signers/txn-data-serializers/txn-data-serializer.ts>
 
@@ -254,7 +368,25 @@ await window.omega.signTransaction({
 })
 ```
 
-### [SUI] paySui
+### paySui
+
+- Kind: `paySui`
+
+- Types:
+
+```typescript
+interface PaySuiTransaction {
+    /**
+     * use `provider.selectCoinSetWithCombinedBalanceGreaterThanOrEqual` to
+     * derive a minimal set of coins with combined balance greater than or
+     * equal to (sent amounts + gas budget).
+     */
+    inputCoins: ObjectId[];
+    recipients: SuiAddress[];
+    amounts: number[];
+    gasBudget: number;
+}
+```
 
 Reference: <https://github.com/MystenLabs/sui/blob/main/sdk/typescript/src/signers/txn-data-serializers/txn-data-serializer.ts>
 
@@ -275,7 +407,19 @@ await window.omega.signTransaction({
 })
 ```
 
-### [SUI] payAllSui
+### payAllSui
+
+- Kind: `payAllSui`
+
+- Types:
+
+```typescript
+interface PayAllSuiTransaction {
+    inputCoins: ObjectId[];
+    recipient: SuiAddress;
+    gasBudget: number;
+}
+```
 
 Reference: <https://github.com/MystenLabs/sui/blob/main/sdk/typescript/src/signers/txn-data-serializers/txn-data-serializer.ts>
 
@@ -290,7 +434,19 @@ await window.omega.signTransaction({
 })
 ```
 
-### [SUI] publish
+### publish
+
+- Kind: `publish`
+
+- Types:
+
+```typescript
+interface PublishTransaction {
+    compiledModules: ArrayLike<string> | ArrayLike<ArrayLike<number>>;
+    gasPayment?: ObjectId;
+    gasBudget: number;
+}
+```
 
 Reference: <https://github.com/MystenLabs/sui/blob/main/sdk/typescript/src/signers/txn-data-serializers/txn-data-serializer.ts>
 
@@ -304,4 +460,58 @@ await window.omega.signTransaction({
     }
 })
 ```
+
+## Aptos
+
+> Only work for Aptos blockchain
+
+### signRawTransaction
+
+- Kind: `signRawTransaction`
+
+- Types:
+
+```typescript
+interface PublishTransaction {
+    compiledModules: ArrayLike<string> | ArrayLike<ArrayLike<number>>;
+    gasPayment?: ObjectId;
+    gasBudget: number;
+}
+```
+
+Reference: <<https://aptos.dev/sdks/ts-sdk/index>
+
+### signBCSTransaction
+
+- Kind: `signBCSTransaction`
+
+- Types:
+
+```typescript
+interface AptosOptionalRequest {
+    gasUnitPrice?: string
+    maxGasAmount?: string
+    chainId?: number
+    expireTimestamp?: string
+    sequenceNumber?: string
+}
+
+interface AptosEntryPayloadRequest {
+    function: string
+    /**
+     * Type arguments of the function
+     */
+    type_arguments: Array<string>
+    /**
+     * Arguments of the function
+     */
+    arguments: Array<any>
+}
+interface AptosBCSTransaction {
+    payload: AptosEntryPayloadRequest
+    optional?: AptosOptionalRequest
+}
+```
+
+Reference: <https://aptos.dev/sdks/ts-sdk/index>
 

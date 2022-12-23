@@ -66,6 +66,15 @@ await window.omega.getBalance(): Promise<{
     }>
 ```
 
+## getBalances
+
+```javascript
+await window.omega.getBalances(): Promise<Array<{
+        amount: string
+        assetId: string
+    }>>
+```
+
 ## getAsset
 
 ```javascript
