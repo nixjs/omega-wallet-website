@@ -30,6 +30,14 @@ await window.omega.getAccounts(): Promise<{
     }[]>
 ```
 
+## getProvider
+
+```javascript
+await window.omega.getProvider(): Promise<{
+        provider: string
+    }>
+```
+
 ## getNetwork
 
 ```javascript
