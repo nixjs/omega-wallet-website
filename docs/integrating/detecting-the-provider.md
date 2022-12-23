@@ -15,6 +15,6 @@ const getProvider = () => {
   if ("omega" in window) {
     return(window.omega);
   }
-  window.open("https://www.omega-wallet.xyz/", "_blank");
+  window.open("https://www.omega-wallet.app/", "_blank");
 };
 ```

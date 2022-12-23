@@ -9,7 +9,7 @@ const config = {
   title: "Omega Wallet",
   tagline:
     "A secure blockchain wallet that supports: APTOS, SUI, Ethereum, DApp, DeFi, and acts as your portal to the Web3 world",
-  url: "https://omega-wallet.xyz",
+  url: "https://omega-wallet.app",
   baseUrl: "/",
   onBrokenLinks: "throw",
   onBrokenMarkdownLinks: "warn",
@@ -69,6 +69,16 @@ const config = {
             docId: "intro",
             position: "left",
             label: "Docs",
+          },
+          {
+            href: "https://chrome.google.com/webstore/detail/omega-wallet-aptos-sui-ev/mobgoaaconpcicgajnpclkelkmjigiak",
+            label: "Chrome web store",
+            position: "right",
+          },
+          {
+            href: "https://github.com/nixjs/omega-wallet-contribution/discussions",
+            label: "Discussions",
+            position: "right",
           },
           {
             href: "https://github.com/nixjs/omega-wallet-website",
