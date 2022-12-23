@@ -503,7 +503,7 @@ interface PublishTransaction {
 }
 ```
 
-Reference: <<https://aptos.dev/sdks/ts-sdk/index>
+Reference: <https://aptos.dev/sdks/ts-sdk/index>
 
 ### signBCSTransaction
 

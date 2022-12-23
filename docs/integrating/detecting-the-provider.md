@@ -15,6 +15,6 @@ const getProvider = () => {
   if ("omega" in window) {
     return(window.omega);
   }
-  window.open("https://www.omega-wallet.app/", "_blank");
+  window.open("https://chrome.google.com/webstore/detail/omega-wallet-aptos-sui-ev/mobgoaaconpcicgajnpclkelkmjigiak", "_blank");
 };
 ```
