@@ -114,7 +114,6 @@
   padding-bottom: 4.5rem;
 }
 .block {
-  border: 1px solid #ffffff1a;
   border-radius: 17px;
   padding: 32px 50px 40px 44px;
   position: relative;
@@ -122,7 +121,6 @@
 }
 
 .blockIcon {
-  background: #ffffff1a;
   border-radius: 50%;
   height: 60px;
   width: 60px;
@@ -140,6 +138,20 @@
 
 .partnership {
   padding: 4.5rem 0 3.5rem;
+}
+
+html[data-theme="dark"] .block {
+  border: 1px solid #ffffff1a;
+}
+html[data-theme="dark"] .blockIcon {
+  background: #ffffff1a;
+}
+
+html[data-theme="light"] .block {
+  border: 1px solid #35383d;
+}
+html[data-theme="light"] .blockIcon {
+  background: #35383d;
 }
 
 html[data-theme="light"] .omegaDark {
