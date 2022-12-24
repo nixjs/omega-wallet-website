@@ -50,6 +50,12 @@ const config = {
           customCss: [require.resolve("./src/css/custom.scss")],
         },
       }),
+      {
+        googleAnalytics: {
+          trackingID: "G-87NT6XMVSG",
+          anonymizeIP: true,
+        },
+      },
     ],
   ],
 
