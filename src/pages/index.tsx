@@ -246,7 +246,13 @@ export default function Home(): JSX.Element {
                   <img
                     src="/img/omega-dark.svg"
                     alt="icon"
-                    className="m-auto"
+                    className={clsx("m-auto", styles.omegaDark)}
+                    width={48}
+                  />
+                  <img
+                    src="/img/omega-light.svg"
+                    alt="icon"
+                    className={clsx("m-auto", styles.omegaLight)}
                     width={48}
                   />
                   <a

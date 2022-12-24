@@ -141,3 +141,18 @@
 .partnership {
   padding: 4.5rem 0 3.5rem;
 }
+
+html[data-theme="light"] .omegaDark {
+  display: none;
+}
+
+html[data-theme="dark"] .omegaDark {
+  display: block;
+}
+
+html[data-theme="light"] .omegaLight {
+  display: block;
+}
+html[data-theme="dark"] .omegaLight {
+  display: none;
+}
