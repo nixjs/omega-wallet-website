@@ -34,6 +34,10 @@ const config = {
       "classic",
       /** @type {import('@docusaurus/preset-classic').Options} */
       ({
+        googleAnalytics: {
+          trackingID: "G-87NT6XMVSG",
+          anonymizeIP: true,
+        },
         docs: {
           sidebarPath: require.resolve("./sidebars.js"),
           // Please change this to your repo.
@@ -50,12 +54,6 @@ const config = {
           customCss: [require.resolve("./src/css/custom.scss")],
         },
       }),
-      {
-        googleAnalytics: {
-          trackingID: "G-87NT6XMVSG",
-          anonymizeIP: true,
-        },
-      },
     ],
   ],
 
