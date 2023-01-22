@@ -539,3 +539,40 @@ interface AptosBCSTransaction {
 
 Reference: <https://aptos.dev/sdks/ts-sdk/index>
 
+## Ethereum
+
+> Only work for Ethereum blockchain
+
+### eth_executeNativeTransaction
+
+- Kind: `eth_executeNativeTransaction`
+
+- Types:
+
+```typescript
+interface  ExecuteNativeTransaction` {
+    raw: ethers.providers.TransactionRequest; // https://docs.ethers.org/v5/api/providers/types/#providers-TransactionRequest
+    speed: GasPriceTypes
+}
+```
+
+### eth_executeContractTransaction
+
+- Kind: `eth_executeContractTransaction`
+
+- Types:
+
+```typescript
+enum GasPriceTypes {
+    SLOW = "SLOW",
+    AVERAGE = "AVERAGE",
+    FAST = "FAST"
+}
+interface  ExecuteContractTransaction {
+   abi: ethers.ContractInterface // https://docs.ethers.org/v5/api/contract/
+    contractAddress: PrimitiveHexString
+    method: string
+    args: any[]
+    speed: GasPriceTypes
+}
+```
