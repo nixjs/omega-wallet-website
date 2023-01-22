@@ -51,46 +51,46 @@ export namespace DappTypes {
             data: CreateNFTTransaction
         }
         | {
-            kind: 'moveCall'
+            kind: 'sui_moveCall'
             data: MoveCallTransaction
         }
         | {
-            kind: 'transferSui'
+            kind: 'sui_transferSui'
             data: TransferSuiTransaction
             // https://github.com/MystenLabs/sui/blob/main/sdk/typescript/src/signers/txn-data-serializers/txn-data-serializer.ts
         }
         | {
-            kind: 'transferObject'
+            kind: 'sui_transferObject'
             data: TransferObjectTransaction
             // https://github.com/MystenLabs/sui/blob/main/sdk/typescript/src/signers/txn-data-serializers/txn-data-serializer.ts
         }
         | {
-            kind: 'mergeCoin'
+            kind: 'sui_mergeCoin'
             data: MergeCoinTransaction
             // https://github.com/MystenLabs/sui/blob/main/sdk/typescript/src/signers/txn-data-serializers/txn-data-serializer.ts
         }
         | {
-            kind: 'splitCoin'
+            kind: 'sui_splitCoin'
             data: SplitCoinTransaction
             // https://github.com/MystenLabs/sui/blob/main/sdk/typescript/src/signers/txn-data-serializers/txn-data-serializer.ts
         }
         | {
-            kind: 'pay'
+            kind: 'sui_pay'
             data: PayTransaction
             // https://github.com/MystenLabs/sui/blob/main/sdk/typescript/src/signers/txn-data-serializers/txn-data-serializer.ts
         }
         | {
-            kind: 'paySui'
+            kind: 'sui_paySui'
             data: PaySuiTransaction
             // https://github.com/MystenLabs/sui/blob/main/sdk/typescript/src/signers/txn-data-serializers/txn-data-serializer.ts
         }
         | {
-            kind: 'payAllSui'
+            kind: 'sui_payAllSui'
             data: PayAllSuiTransaction
             // https://github.com/MystenLabs/sui/blob/main/sdk/typescript/src/signers/txn-data-serializers/txn-data-serializer.ts
         }
         | {
-            kind: 'publish'
+            kind: 'sui_publish'
             data: PublishTransaction
             // https://github.com/MystenLabs/sui/blob/main/sdk/typescript/src/signers/txn-data-serializers/txn-data-serializer.ts
         }
@@ -126,18 +126,6 @@ await window.omega.signTransaction({
         to: '0x8e11ce8e16b3d9701f08df9171a790ebdbca0a78010245427052b012faecc8a7',
     },
 })
-```
-
-### register_asset
-
-- Kind: `register_asset`
-
-- Types:
-
-```typescript
-    export interface RegisterAssetTransaction {
-        assetId: string
-    }
 ```
 
 - Example:
@@ -200,9 +188,9 @@ Coming soon
 
 > Only work for SUI blockchain
 
-### transferSui
+### sui_transferSui
 
-- Kind: `transferSui`
+- Kind: `sui_transferSui`
 
 - Types:
 
@@ -219,7 +207,7 @@ Reference: <https://github.com/MystenLabs/sui/blob/main/sdk/typescript/src/signe
 
 ```typescript
 await window.omega.signTransaction({
-    kind: 'transferSui',
+    kind: 'sui_transferSui',
     data: {
         amount: 1,
         gasBudget: 100,
@@ -229,9 +217,9 @@ await window.omega.signTransaction({
 })
 ```
 
-### moveCall
+### sui_moveCall
 
-- Kind: `moveCall`
+- Kind: `sui_moveCall`
 
 - Types:
 
@@ -251,7 +239,7 @@ Reference: <https://github.com/MystenLabs/sui/blob/main/sdk/typescript/src/signe
 
 ```typescript
 await window.omega.signTransaction({
-    kind: 'moveCall',
+    kind: 'sui_moveCall',
     data: {
         packageObjectId: '0xxxx';
         module: 'xx',
@@ -264,9 +252,9 @@ await window.omega.signTransaction({
 })
 ```
 
-### transferObject
+### sui_transferObject
 
-- Kind: `transferObject`
+- Kind: `sui_transferObject`
 
 - Types:
 
@@ -283,7 +271,7 @@ Reference: <https://github.com/MystenLabs/sui/blob/main/sdk/typescript/src/signe
 
 ```typescript
 await window.omega.signTransaction({
-    kind: 'transferObject',
+    kind: 'sui_transferObject',
     data: {
         objectId: '0xxx',
         gasPayment: '0xxx',
@@ -293,9 +281,9 @@ await window.omega.signTransaction({
 })
 ```
 
-### mergeCoin
+### sui_mergeCoin
 
-- Kind: `mergeCoin`
+- Kind: `sui_mergeCoin`
 
 - Types:
 
@@ -312,7 +300,7 @@ Reference: <https://github.com/MystenLabs/sui/blob/main/sdk/typescript/src/signe
 
 ```typescript
 await window.omega.signTransaction({
-    kind: 'mergeCoin',
+    kind: 'sui_mergeCoin',
     data: {
         primaryCoin: '0xxx',
         coinToMerge: '0xxx',
@@ -322,9 +310,9 @@ await window.omega.signTransaction({
 })
 ```
 
-### splitCoin
+### sui_splitCoin
 
-- Kind: `splitCoin`
+- Kind: `sui_splitCoin`
 
 - Types:
 
@@ -341,7 +329,7 @@ Reference: <https://github.com/MystenLabs/sui/blob/main/sdk/typescript/src/signe
 
 ```typescript
 await window.omega.signTransaction({
-    kind: 'splitCoin',
+    kind: 'sui_splitCoin',
     data: {
         coinObjectId: '0xxx',
         splitAmounts: '0xxx',
@@ -351,9 +339,9 @@ await window.omega.signTransaction({
 })
 ```
 
-### pay
+### sui_pay
 
-- Kind: `pay`
+- Kind: `sui_pay`
 
 - Types:
 
@@ -376,7 +364,7 @@ Reference: <https://github.com/MystenLabs/sui/blob/main/sdk/typescript/src/signe
 
 ```typescript
 await window.omega.signTransaction({
-    kind: 'pay',
+    kind: 'sui_pay',
     data: {
         /**
          * use `provider.selectCoinSetWithCombinedBalanceGreaterThanOrEqual` to
@@ -392,9 +380,9 @@ await window.omega.signTransaction({
 })
 ```
 
-### paySui
+### sui_paySui
 
-- Kind: `paySui`
+- Kind: `sui_paySui`
 
 - Types:
 
@@ -416,7 +404,7 @@ Reference: <https://github.com/MystenLabs/sui/blob/main/sdk/typescript/src/signe
 
 ```typescript
 await window.omega.signTransaction({
-    kind: 'paySui',
+    kind: 'sui_paySui',
     data: {
         /**
          * use `provider.selectCoinSetWithCombinedBalanceGreaterThanOrEqual` to
@@ -431,9 +419,9 @@ await window.omega.signTransaction({
 })
 ```
 
-### payAllSui
+### sui_payAllSui
 
-- Kind: `payAllSui`
+- Kind: `sui_payAllSui`
 
 - Types:
 
@@ -449,7 +437,7 @@ Reference: <https://github.com/MystenLabs/sui/blob/main/sdk/typescript/src/signe
 
 ```typescript
 await window.omega.signTransaction({
-    kind: 'payAllSui',
+    kind: 'sui_payAllSui',
     data: {
         inputCoins: ['0xxx', '0xxx'],
         recipient: '0xxx',
@@ -458,9 +446,9 @@ await window.omega.signTransaction({
 })
 ```
 
-### publish
+### sui_publish
 
-- Kind: `publish`
+- Kind: `sui_publish`
 
 - Types:
 
@@ -476,7 +464,7 @@ Reference: <https://github.com/MystenLabs/sui/blob/main/sdk/typescript/src/signe
 
 ```typescript
 await window.omega.signTransaction({
-    kind: 'publish',
+    kind: 'sui_publish',
     data: {
         compiledModules: [0,2,3,12];
         gasPayment: '0xxx',
@@ -489,9 +477,9 @@ await window.omega.signTransaction({
 
 > Only work for Aptos blockchain
 
-### signRawTransaction
+### aptos_signRawTransaction
 
-- Kind: `signRawTransaction`
+- Kind: `aptos_signRawTransaction`
 
 - Types:
 
@@ -505,9 +493,9 @@ interface PublishTransaction {
 
 Reference: <https://aptos.dev/sdks/ts-sdk/index>
 
-### signBCSTransaction
+### aptos_signBCSTransaction
 
-- Kind: `signBCSTransaction`
+- Kind: `aptos_signBCSTransaction`
 
 - Types:
 
@@ -534,6 +522,18 @@ interface AptosEntryPayloadRequest {
 interface AptosBCSTransaction {
     payload: AptosEntryPayloadRequest
     optional?: AptosOptionalRequest
+}
+```
+
+### aptos_registerAsset
+
+- Kind: `aptos_registerAsset`
+
+- Types:
+
+```typescript
+export interface AptosRegisterAsset {
+    assetId: string
 }
 ```
 
