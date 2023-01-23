@@ -38,6 +38,15 @@ const sidebars = {
       ],
     },
     {
+      type: "category",
+      label: "SUI",
+      collapsed: false,
+      items: [
+        "sui/why-my-tokens-wiped-out-on-devnet",
+        "sui/how-to-get-sui-tokens",
+      ],
+    },
+    {
       type: "doc",
       label: "Privacy policy",
       id: "privacy-policy",
