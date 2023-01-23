@@ -225,7 +225,7 @@ export default function Home(): JSX.Element {
               </div>
             </div>
             <div className="row justify-content-center pt-50 md-pt-20">
-              <div className="d-flex align-items-center">
+              <div className="d-flex align-items-center gap-32">
                 <div className="d-flex flex-column justify-content-center">
                   <img
                     src="https://raw.githubusercontent.com/nixjs/coin-dapp-wallet-list/main/src/aptos/partner/assets/SimpleSwap.svg"
@@ -241,26 +241,19 @@ export default function Home(): JSX.Element {
                     SimpleSwap
                   </a>
                 </div>
-                <span className="w600 ml-16 mr-16">+</span>
                 <div className="d-flex flex-column justify-content-center">
                   <img
-                    src="/img/omega-dark.svg"
+                    src="/img/stealthEx.png"
                     alt="icon"
-                    className={clsx("m-auto", styles.omegaDark)}
-                    width={48}
-                  />
-                  <img
-                    src="/img/omega-light.svg"
-                    alt="icon"
-                    className={clsx("m-auto", styles.omegaLight)}
-                    width={48}
+                    className="m-auto"
+                    height={48}
                   />
                   <a
-                    href="https://omega-wallet.app/"
+                    href="https://stealthex.io/"
                     className="button button--primary button--sm mt-24"
                     target="_blank"
                   >
-                    Omega Wallet
+                    StealthEX
                   </a>
                 </div>
               </div>
