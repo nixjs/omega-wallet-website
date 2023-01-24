@@ -77,3 +77,5 @@ export const Download: React.FC = () => (
     </div>
   </div>
 );
+
+export default Download;

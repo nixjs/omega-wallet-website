@@ -104,3 +104,5 @@ export const FeatureSection: React.FC = () => {
     </div>
   );
 };
+
+export default FeatureSection;

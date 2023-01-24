@@ -126,3 +126,5 @@ export const WhySection: React.FC = () => {
     </div>
   );
 };
+
+export default WhySection;

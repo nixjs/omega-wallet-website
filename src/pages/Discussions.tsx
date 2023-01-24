@@ -77,3 +77,5 @@ export const DiscussionsSection: React.FC = () => {
     </div>
   );
 };
+
+export default DiscussionsSection;
