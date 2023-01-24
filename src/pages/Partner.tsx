@@ -2,7 +2,7 @@ import React from "react";
 import clsx from "clsx";
 import styles from "./index.module.css";
 
-export const PartnerSection = () => {
+export const PartnerSection: React.FC = () => {
   return (
     <div className={styles["partner-section"]}>
       <div className="container">

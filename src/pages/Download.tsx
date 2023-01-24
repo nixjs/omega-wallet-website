@@ -1,6 +1,6 @@
 import React from "react";
 
-export const Download = () => (
+export const Download: React.FC = () => (
   <div className="row">
     <div className="col-lg-offset-3 col-lg-6 col-offset-sm-0 col-sm-12">
       <div className="row">

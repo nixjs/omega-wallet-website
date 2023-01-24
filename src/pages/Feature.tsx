@@ -2,7 +2,7 @@ import React from "react";
 import clsx from "clsx";
 import styles from "./index.module.css";
 
-export const FeatureSection = () => {
+export const FeatureSection: React.FC = () => {
   return (
     <div className={styles["feature-section"]} id="feature">
       <div className="container">

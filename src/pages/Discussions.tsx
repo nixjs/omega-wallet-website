@@ -3,7 +3,7 @@ import clsx from "clsx";
 import { Download } from "./Download";
 import styles from "./index.module.css";
 
-export const DiscussionsSection = () => {
+export const DiscussionsSection: React.FC = () => {
   return (
     <div className={styles["discussion-section"]}>
       <div className="container">
