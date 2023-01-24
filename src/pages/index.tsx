@@ -34,7 +34,7 @@ export default function Home(): JSX.Element {
                     <Download />
                   </div>
                   <p className="text-center mt-24">
-                    For Developer: <a href="/docs/intro">Getting Started</a>
+                    Look for integration?: <a href="/docs/intro">Getting Started</a>
                   </p>
                 </div>
               </div>
