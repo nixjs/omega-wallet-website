@@ -65,6 +65,26 @@ export const PartnerSection: React.FC = () => {
                     StealthEX
                   </a>
                 </div>
+                <div
+                  className={clsx(
+                    "d-flex flex-column justify-content-center",
+                    styles["block-content"]
+                  )}
+                >
+                  <img
+                    src="/img/partner/exolix-dark.png"
+                    alt="icon"
+                    className="m-auto"
+                    height={48}
+                  />
+                  <a
+                    href="https://exolix.com/"
+                    className="button button--primary button--sm mt-24"
+                    target="_blank"
+                  >
+                    Exolix
+                  </a>
+                </div>
               </div>
             </div>
           </div>

@@ -80,7 +80,7 @@ const config = {
           {
             href: "https://chrome.google.com/webstore/detail/omega-wallet-aptos-sui-ev/mobgoaaconpcicgajnpclkelkmjigiak",
             label: "Chrome web store",
-            position: "right",
+            position: "left",
           },
           {
             href: "https://github.com/nixjs/omega-wallet-contribution/discussions",
@@ -90,6 +90,11 @@ const config = {
           {
             href: "https://github.com/nixjs/omega-wallet-website",
             label: "GitHub",
+            position: "right",
+          },
+          {
+            href: "https://github.com/nixjs/omega-wallet-website/blob/main/presskit.zip",
+            label: "Press kit",
             position: "right",
           },
         ],
