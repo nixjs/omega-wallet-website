@@ -85,6 +85,26 @@ export const PartnerSection: React.FC = () => {
                     Exolix
                   </a>
                 </div>
+                <div
+                  className={clsx(
+                    "d-flex flex-column justify-content-center",
+                    styles["block-content"]
+                  )}
+                >
+                  <img
+                    src="/img/partner/swapuz.svg"
+                    alt="icon"
+                    className="m-auto"
+                    height={48}
+                  />
+                  <a
+                    href="https://swapuz.com/"
+                    className="button button--primary button--sm mt-24"
+                    target="_blank"
+                  >
+                    Swapuz
+                  </a>
+                </div>
               </div>
             </div>
           </div>
