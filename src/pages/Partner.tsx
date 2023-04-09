@@ -24,7 +24,7 @@ export const PartnerSection: React.FC = () => {
               </h2>
             </div>
             <div className="row justify-content-center pt-50 md-pt-20">
-              <div className="d-flex align-items-center gap-32">
+              <div className="d-flex align-items-center justify-content-center flex-wrap gap-32">
                 <div
                   className={clsx(
                     "d-flex flex-column justify-content-center",
