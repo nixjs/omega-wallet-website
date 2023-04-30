@@ -50,49 +50,29 @@ export namespace DappTypes {
             kind: 'create_nft'
             data: CreateNFTTransaction
         }
+        // Aptos
         | {
-            kind: 'sui_moveCall'
-            data: MoveCallTransaction
+          kind: 'aptos_signRawTransaction'
+          data: AptosRawTransaction
         }
         | {
-            kind: 'sui_transferSui'
-            data: TransferSuiTransaction
-            // https://github.com/MystenLabs/sui/blob/main/sdk/typescript/src/signers/txn-data-serializers/txn-data-serializer.ts
+            kind: 'aptos_signBCSTransaction'
+            data: AptosBCSTransaction
         }
         | {
-            kind: 'sui_transferObject'
-            data: TransferObjectTransaction
-            // https://github.com/MystenLabs/sui/blob/main/sdk/typescript/src/signers/txn-data-serializers/txn-data-serializer.ts
+            kind: 'aptos_registerAsset'
+            data: AptosRegisterAssetTransaction
+        }
+        // SUI
+        | {
+            kind: 'sui_simulateTransaction'
+            data: string | Uint8Array
+            // https://github.com/MystenLabs/sui/blob/730529bbd967548be9f5209886ee81f2b6bf09db/sdk/typescript/src/builder/TransactionBlock.ts
         }
         | {
-            kind: 'sui_mergeCoin'
-            data: MergeCoinTransaction
-            // https://github.com/MystenLabs/sui/blob/main/sdk/typescript/src/signers/txn-data-serializers/txn-data-serializer.ts
-        }
-        | {
-            kind: 'sui_splitCoin'
-            data: SplitCoinTransaction
-            // https://github.com/MystenLabs/sui/blob/main/sdk/typescript/src/signers/txn-data-serializers/txn-data-serializer.ts
-        }
-        | {
-            kind: 'sui_pay'
-            data: PayTransaction
-            // https://github.com/MystenLabs/sui/blob/main/sdk/typescript/src/signers/txn-data-serializers/txn-data-serializer.ts
-        }
-        | {
-            kind: 'sui_paySui'
-            data: PaySuiTransaction
-            // https://github.com/MystenLabs/sui/blob/main/sdk/typescript/src/signers/txn-data-serializers/txn-data-serializer.ts
-        }
-        | {
-            kind: 'sui_payAllSui'
-            data: PayAllSuiTransaction
-            // https://github.com/MystenLabs/sui/blob/main/sdk/typescript/src/signers/txn-data-serializers/txn-data-serializer.ts
-        }
-        | {
-            kind: 'sui_publish'
-            data: PublishTransaction
-            // https://github.com/MystenLabs/sui/blob/main/sdk/typescript/src/signers/txn-data-serializers/txn-data-serializer.ts
+            kind: 'sui_executeTransaction'
+            data: string | Uint8Array
+            // https://github.com/MystenLabs/sui/blob/730529bbd967548be9f5209886ee81f2b6bf09db/sdk/typescript/src/builder/TransactionBlock.ts
         }
     }
 ```
@@ -188,290 +168,35 @@ Coming soon
 
 > Only work for SUI blockchain
 
-### sui_transferSui
+### sui_simulateTransaction
 
-- Kind: `sui_transferSui`
+Raw transaction is generated from TransactionBlock and serialized or Uint8Array
 
-- Types:
-
-```typescript
-interface TransferSuiTransaction {
-    suiObjectId: ObjectId;
-    gasBudget: number;
-    recipient: SuiAddress;
-    amount: number | null;
-}
-```
-
-Reference: <https://github.com/MystenLabs/sui/blob/main/sdk/typescript/src/signers/txn-data-serializers/txn-data-serializer.ts>
+- Kind: `sui_simulateTransaction`
 
 ```typescript
 await window.omega.signTransaction({
-    kind: 'sui_transferSui',
-    data: {
-        amount: 1,
-        gasBudget: 100,
-        recipient: '0x1058a41ebe92ff069b65b692e20e51874a431e8b',
-        suiObjectId: '0x42ff19f3bd12855ef2809645ffbfa4b5e75d4de8'
-    }
+    kind: 'sui_simulateTransaction',
+    data: `{"version":1,"sender":"0x3fd4598d9881475e8a930a25d45b4fef1db1cc43c711d5ab031b8f47401c3558","gasConfig":{"price":"1000","payment":[{"objectId":"0x44303b9ed9c8aa83ab170638a1975078631271c0d558d9e6b6cf3dfd268eab85","digest":"8kqcnWcPSb5hh1GWj2xg8NjpzvpbXW2GGF6FbrrHquE8","version":"22516"}],"budget":"3976000"},"inputs":[{"kind":"Input","value":{"Pure":[0,225,245,5,0,0,0,0]},"index":0,"type":"pure"},{"kind":"Input","value":{"Pure":[227,162,217,68,193,124,133,214,115,17,195,200,15,77,121,134,42,64,249,189,232,242,230,185,161,21,96,78,207,134,173,22]},"index":1,"type":"pure"}],"transactions":[{"kind":"SplitCoins","coin":{"kind":"GasCoin"},"amounts":[{"kind":"Input","value":"100000000","index":0,"type":"pure"}]},{"kind":"TransferObjects","objects":[{"kind":"Result","index":0}],"address":{"kind":"Input","value":"0xe3a2d944c17c85d67311c3c80f4d79862a40f9bde8f2e6b9a115604ecf86ad16","index":1,"type":"pure"}}]}`
 })
 ```
 
-### sui_moveCall
+Reference: [https://github.com/MystenLabs/sui/.../TransactionBlock.ts](https://github.com/MystenLabs/sui/blob/730529bbd967548be9f5209886ee81f2b6bf09db/sdk/typescript/src/builder/TransactionBlock.ts)
 
-- Kind: `sui_moveCall`
+### sui_executeTransaction
 
-- Types:
+Raw transaction is generated from TransactionBlock and serialized or Uint8Array
 
-```typescript
-interface MoveCallTransaction {
-    packageObjectId: ObjectId;
-    module: string;
-    function: string;
-    typeArguments: string[] | TypeTag[];
-    arguments: SuiJsonValue[];
-    gasPayment?: ObjectId;
-    gasBudget: number;
-}
-```
-
-Reference: <https://github.com/MystenLabs/sui/blob/main/sdk/typescript/src/signers/txn-data-serializers/txn-data-serializer.ts>
+- Kind: `sui_executeTransaction`
 
 ```typescript
 await window.omega.signTransaction({
-    kind: 'sui_moveCall',
-    data: {
-        packageObjectId: '0xxxx';
-        module: 'xx',
-        function: 'xx',
-        typeArguments: ['xx', 'xx']
-        arguments: 2,
-        gasPayment: '0xxxx,
-        gasBudget: 100
-    }
+    kind: 'sui_executeTransaction',
+    data: `{"version":1,"sender":"0x3fd4598d9881475e8a930a25d45b4fef1db1cc43c711d5ab031b8f47401c3558","gasConfig":{"price":"1000","payment":[{"objectId":"0x44303b9ed9c8aa83ab170638a1975078631271c0d558d9e6b6cf3dfd268eab85","digest":"8kqcnWcPSb5hh1GWj2xg8NjpzvpbXW2GGF6FbrrHquE8","version":"22516"}],"budget":"3976000"},"inputs":[{"kind":"Input","value":{"Pure":[0,225,245,5,0,0,0,0]},"index":0,"type":"pure"},{"kind":"Input","value":{"Pure":[227,162,217,68,193,124,133,214,115,17,195,200,15,77,121,134,42,64,249,189,232,242,230,185,161,21,96,78,207,134,173,22]},"index":1,"type":"pure"}],"transactions":[{"kind":"SplitCoins","coin":{"kind":"GasCoin"},"amounts":[{"kind":"Input","value":"100000000","index":0,"type":"pure"}]},{"kind":"TransferObjects","objects":[{"kind":"Result","index":0}],"address":{"kind":"Input","value":"0xe3a2d944c17c85d67311c3c80f4d79862a40f9bde8f2e6b9a115604ecf86ad16","index":1,"type":"pure"}}]}`
 })
 ```
 
-### sui_transferObject
-
-- Kind: `sui_transferObject`
-
-- Types:
-
-```typescript
-interface TransferObjectTransaction {
-    objectId: ObjectId;
-    gasPayment?: ObjectId;
-    gasBudget: number;
-    recipient: SuiAddress;
-}
-```
-
-Reference: <https://github.com/MystenLabs/sui/blob/main/sdk/typescript/src/signers/txn-data-serializers/txn-data-serializer.ts>
-
-```typescript
-await window.omega.signTransaction({
-    kind: 'sui_transferObject',
-    data: {
-        objectId: '0xxx',
-        gasPayment: '0xxx',
-        gasBudget: 100,
-        recipient: '0x1058a41ebe92ff069b65b692e20e51874a431e8b'
-    }
-})
-```
-
-### sui_mergeCoin
-
-- Kind: `sui_mergeCoin`
-
-- Types:
-
-```typescript
-interface MergeCoinTransaction {
-    primaryCoin: ObjectId;
-    coinToMerge: ObjectId;
-    gasPayment?: ObjectId;
-    gasBudget: number;
-}
-```
-
-Reference: <https://github.com/MystenLabs/sui/blob/main/sdk/typescript/src/signers/txn-data-serializers/txn-data-serializer.ts>
-
-```typescript
-await window.omega.signTransaction({
-    kind: 'sui_mergeCoin',
-    data: {
-        primaryCoin: '0xxx',
-        coinToMerge: '0xxx',
-        gasPayment: '0xxx',
-        gasBudget: 100
-    }
-})
-```
-
-### sui_splitCoin
-
-- Kind: `sui_splitCoin`
-
-- Types:
-
-```typescript
-interface SplitCoinTransaction {
-    coinObjectId: ObjectId;
-    splitAmounts: number[];
-    gasPayment?: ObjectId;
-    gasBudget: number;
-}
-```
-
-Reference: <https://github.com/MystenLabs/sui/blob/main/sdk/typescript/src/signers/txn-data-serializers/txn-data-serializer.ts>
-
-```typescript
-await window.omega.signTransaction({
-    kind: 'sui_splitCoin',
-    data: {
-        coinObjectId: '0xxx',
-        splitAmounts: '0xxx',
-        gasPayment: '0xxx',
-        gasBudget: 100
-    }
-})
-```
-
-### sui_pay
-
-- Kind: `sui_pay`
-
-- Types:
-
-```typescript
-interface PayTransaction {
-    /**
-     * use `provider.selectCoinSetWithCombinedBalanceGreaterThanOrEqual` to
-     * derive a minimal set of coins with combined balance greater than or
-     * equal to sent amounts
-     */
-    inputCoins: ObjectId[];
-    recipients: SuiAddress[];
-    amounts: number[];
-    gasPayment?: ObjectId;
-    gasBudget: number;
-}
-```
-
-Reference: <https://github.com/MystenLabs/sui/blob/main/sdk/typescript/src/signers/txn-data-serializers/txn-data-serializer.ts>
-
-```typescript
-await window.omega.signTransaction({
-    kind: 'sui_pay',
-    data: {
-        /**
-         * use `provider.selectCoinSetWithCombinedBalanceGreaterThanOrEqual` to
-         * derive a minimal set of coins with combined balance greater than or
-         * equal to sent amounts
-         */
-        inputCoins: ['0xxx', '0xxx'],
-        recipients: ['0xxx', '0xxx'],
-        amounts: [1, 2],
-        gasPayment: '0xxx',
-        gasBudget: 100
-    }
-})
-```
-
-### sui_paySui
-
-- Kind: `sui_paySui`
-
-- Types:
-
-```typescript
-interface PaySuiTransaction {
-    /**
-     * use `provider.selectCoinSetWithCombinedBalanceGreaterThanOrEqual` to
-     * derive a minimal set of coins with combined balance greater than or
-     * equal to (sent amounts + gas budget).
-     */
-    inputCoins: ObjectId[];
-    recipients: SuiAddress[];
-    amounts: number[];
-    gasBudget: number;
-}
-```
-
-Reference: <https://github.com/MystenLabs/sui/blob/main/sdk/typescript/src/signers/txn-data-serializers/txn-data-serializer.ts>
-
-```typescript
-await window.omega.signTransaction({
-    kind: 'sui_paySui',
-    data: {
-        /**
-         * use `provider.selectCoinSetWithCombinedBalanceGreaterThanOrEqual` to
-         * derive a minimal set of coins with combined balance greater than or
-         * equal to sent amounts
-         */
-        inputCoins: ['0xxx', '0xxx'],
-        recipients: ['0xxx', '0xxx'],
-        amounts: [1, 2],
-        gasBudget: 100
-    }
-})
-```
-
-### sui_payAllSui
-
-- Kind: `sui_payAllSui`
-
-- Types:
-
-```typescript
-interface PayAllSuiTransaction {
-    inputCoins: ObjectId[];
-    recipient: SuiAddress;
-    gasBudget: number;
-}
-```
-
-Reference: <https://github.com/MystenLabs/sui/blob/main/sdk/typescript/src/signers/txn-data-serializers/txn-data-serializer.ts>
-
-```typescript
-await window.omega.signTransaction({
-    kind: 'sui_payAllSui',
-    data: {
-        inputCoins: ['0xxx', '0xxx'],
-        recipient: '0xxx',
-        gasBudget: 100
-    }
-})
-```
-
-### sui_publish
-
-- Kind: `sui_publish`
-
-- Types:
-
-```typescript
-interface PublishTransaction {
-    compiledModules: ArrayLike<string> | ArrayLike<ArrayLike<number>>;
-    gasPayment?: ObjectId;
-    gasBudget: number;
-}
-```
-
-Reference: <https://github.com/MystenLabs/sui/blob/main/sdk/typescript/src/signers/txn-data-serializers/txn-data-serializer.ts>
-
-```typescript
-await window.omega.signTransaction({
-    kind: 'sui_publish',
-    data: {
-        compiledModules: [0,2,3,12];
-        gasPayment: '0xxx',
-        gasBudget: 100;
-    }
-})
-```
+Reference: [https://github.com/MystenLabs/sui/.../TransactionBlock.ts](https://github.com/MystenLabs/sui/blob/730529bbd967548be9f5209886ee81f2b6bf09db/sdk/typescript/src/builder/TransactionBlock.ts)
 
 ## Aptos
 
