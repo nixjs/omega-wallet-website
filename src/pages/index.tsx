@@ -1,9 +1,11 @@
 import React from "react";
 import Layout from "@theme/Layout";
 import clsx from "clsx";
+import Marquee from "react-fast-marquee";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { PartnerMarqueeSection } from "./PartnerMarquee";
 import { FeatureSection } from "./Feature";
 import { DiscussionsSection } from "./Discussions";
-import { PartnerSection } from "./Partner";
 import { WhySection } from "./Why";
 import { Download } from "./Download";
 import styles from "./index.module.css";
@@ -14,8 +16,8 @@ export default function Home(): JSX.Element {
       title={"A friendly crypto wallet"}
       description="A secure blockchain wallet that supports: APTOS, SUI, Ethereum, DApp, DeFi, and acts as your portal to the Web3 world"
     >
-      <main>
-        <div className={clsx(styles["hero-banner"], "container")} id="home">
+      <main className={styles["main-container"]}>
+        <div className={clsx(styles["hero-banner"])} id="home">
           <div className="container">
             <div className="row">
               <div className="col-xl-11 col-lg-12 col-md-10 m-auto text-center">
@@ -34,7 +36,8 @@ export default function Home(): JSX.Element {
                     <Download />
                   </div>
                   <p className="text-center mt-24">
-                    Look for integration?: <a href="/docs/intro">Getting Started</a>
+                    Look for integration?:{" "}
+                    <a href="/docs/intro">Getting Started</a>
                   </p>
                 </div>
               </div>
@@ -99,9 +102,9 @@ export default function Home(): JSX.Element {
             />
           </div>
         </div>
+        <PartnerMarqueeSection />
         <FeatureSection />
         <WhySection />
-        <PartnerSection />
         <DiscussionsSection />
       </main>
     </Layout>

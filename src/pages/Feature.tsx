@@ -1,5 +1,14 @@
 import React from "react";
 import clsx from "clsx";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import {
+  faImage,
+  faShuffle,
+  faListCheck,
+  faLink,
+  faWandMagicSparkles,
+  faCircleNodes,
+} from "@fortawesome/free-solid-svg-icons";
 import styles from "./index.module.css";
 
 export const FeatureSection: React.FC = () => {
@@ -9,17 +18,11 @@ export const FeatureSection: React.FC = () => {
         <div className="row">
           <div className="col-lg-10 m-auto">
             <div className={clsx(styles["section-title"], "text-center")}>
-              <div className={styles["section-heading"]}>Features</div>
-              <h2 className={styles["section-caption"]}>
-                <span className="position-relative">
-                  All-in-one Platform
-                  <img
-                    className={clsx(styles["section-line"], "m-auto")}
-                    src="/img/hero/line-shape-14.svg"
-                    alt="line shape"
-                  />
-                </span>
-              </h2>
+              <h2 className="text-64">All-in-one Platform</h2>
+              <p className="text-24 position-relative">
+                Omega is a web3 wallet that unlocks a universe of applications
+                in Aptos, SUI and EVM-based Blockchain.
+              </p>
             </div>
           </div>
         </div>
@@ -29,9 +32,11 @@ export const FeatureSection: React.FC = () => {
           <div className="row">
             <div className="col-lg-4 col-sm-6">
               <div className={styles["block-meta"]}>
-                <div className={clsx(styles.icon, "d-flex align-items-end")}>
-                  <img src="/img/hero/icon/94.svg" alt="icon" />
-                </div>
+                <FontAwesomeIcon
+                  icon={faImage}
+                  size="3x"
+                  color="var(--ifm-link-color)"
+                />
                 <h4>Easy to read Activity History</h4>
                 <p>
                   Keep track of your activity with an easy-to-follow transaction
@@ -41,9 +46,11 @@ export const FeatureSection: React.FC = () => {
             </div>
             <div className="col-lg-4 col-sm-6">
               <div className={styles["block-meta"]}>
-                <div className={clsx(styles.icon, "d-flex align-items-end")}>
-                  <img src="/img/hero/icon/95.svg" alt="icon" />
-                </div>
+                <FontAwesomeIcon
+                  icon={faShuffle}
+                  size="3x"
+                  color="var(--ifm-link-color)"
+                />
                 <h4>Send Tokens & NFTs</h4>
                 <p>
                   Send & receive Tokens directly in your wallet with 1 click
@@ -52,9 +59,11 @@ export const FeatureSection: React.FC = () => {
             </div>
             <div className="col-lg-4 col-sm-6">
               <div className={styles["block-meta"]}>
-                <div className={clsx(styles.icon, "d-flex align-items-end")}>
-                  <img src="/img/hero/icon/96.svg" alt="icon" />
-                </div>
+                <FontAwesomeIcon
+                  icon={faListCheck}
+                  size="3x"
+                  color="var(--ifm-link-color)"
+                />
                 <h4>Manage your NFT collection</h4>
                 <p>
                   Safely store your favorite NFTs, check floor prices, set an
@@ -64,9 +73,11 @@ export const FeatureSection: React.FC = () => {
             </div>
             <div className="col-lg-4 col-sm-6">
               <div className={styles["block-meta"]}>
-                <div className={clsx(styles.icon, "d-flex align-items-end")}>
-                  <img src="/img/hero/icon/97.svg" alt="icon" />
-                </div>
+                <FontAwesomeIcon
+                  icon={faLink}
+                  size="3x"
+                  color="var(--ifm-link-color)"
+                />
                 <h4>Connect to dapps</h4>
                 <p>
                   Omega Wallet is the easiest way to safely connect to dapps.
@@ -76,9 +87,11 @@ export const FeatureSection: React.FC = () => {
             </div>
             <div className="col-lg-4 col-sm-6">
               <div className={styles["block-meta"]}>
-                <div className={clsx(styles.icon, "d-flex align-items-end")}>
-                  <img src="/img/hero/icon/98.svg" alt="icon" />
-                </div>
+                <FontAwesomeIcon
+                  icon={faWandMagicSparkles}
+                  size="3x"
+                  color="var(--ifm-link-color)"
+                />
                 <h4>Quick and Easy Swaps</h4>
                 <p>
                   Take advantage of the built-in swap function that allows you
@@ -88,9 +101,11 @@ export const FeatureSection: React.FC = () => {
             </div>
             <div className="col-lg-4 col-sm-6">
               <div className={styles["block-meta"]}>
-                <div className={clsx(styles.icon, "d-flex align-items-end")}>
-                  <img src="/img/hero/icon/99.svg" alt="icon" />
-                </div>
+                <FontAwesomeIcon
+                  icon={faCircleNodes}
+                  size="3x"
+                  color="var(--ifm-link-color)"
+                />
                 <h4>Multiple Blockchains</h4>
                 <p>
                   Liquality connects you with your preferred blockchains - no

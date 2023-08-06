@@ -177,6 +177,9 @@
 .text-32 {
   font-size: 2em !important;
 }
+.text-48 {
+  font-size: 3em !important;
+}
 .text-64 {
   font-size: 4em !important;
 }
@@ -622,6 +625,18 @@
 .radius-50 {
   border-radius: 50%;
 }
+.left-0 {
+  left: 0;
+}
+.top-0 {
+  top: 0;
+}
+.bottom-0 {
+  bottom: 0;
+}
+.right-0 {
+  right: 0;
+}
 .user-select-none {
   user-select: none !important;
 }
@@ -667,4 +682,21 @@
 
 .gap-32 {
   gap: 2em;
+}
+
+.row > * {
+  flex-shrink: 0;
+  width: 100%;
+  max-width: 100%;
+  padding-right: calc(var(--bs-gutter-x) * 0.5);
+  padding-left: calc(var(--bs-gutter-x) * 0.5);
+  margin-top: var(--bs-gutter-y);
+}
+
+a,
+ul,
+ol {
+  padding: 0;
+  margin: 0;
+  list-style: none;
 }
