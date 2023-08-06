@@ -1,7 +1,7 @@
 import React from "react";
 import clsx from "clsx";
 import { Download } from "./Download";
-import styles from "./index.module.css";
+import styles from "../pages/index.module.css";
 
 export const DiscussionsSection: React.FC = () => {
   return (

@@ -9,7 +9,7 @@ import {
   faWandMagicSparkles,
   faCircleNodes,
 } from "@fortawesome/free-solid-svg-icons";
-import styles from "./index.module.css";
+import styles from "../pages/index.module.css";
 
 export const FeatureSection: React.FC = () => {
   return (

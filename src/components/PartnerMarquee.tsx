@@ -3,7 +3,7 @@ import Marquee from "react-fast-marquee";
 import clsx from "clsx";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faLink } from "@fortawesome/free-solid-svg-icons";
-import styles from "./index.module.css";
+import styles from "../pages/index.module.css";
 
 export const PartnerMarqueeSection: React.FC = () => {
   return (

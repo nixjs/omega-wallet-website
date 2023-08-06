@@ -1,12 +1,8 @@
 import React from "react";
 import clsx from "clsx";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import {
-  faRocket,
-  faShuttleSpace,
-  faShieldHalved,
-} from "@fortawesome/free-solid-svg-icons";
-import styles from "./index.module.css";
+import { faShieldHalved } from "@fortawesome/free-solid-svg-icons";
+import styles from "../pages/index.module.css";
 
 export const WhySection: React.FC = () => {
   return (

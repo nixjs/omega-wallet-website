@@ -1,6 +1,6 @@
 import React from "react";
 import clsx from "clsx";
-import styles from "./index.module.css";
+import styles from "../pages/index.module.css";
 
 export const PartnerSection: React.FC = () => {
   return (
