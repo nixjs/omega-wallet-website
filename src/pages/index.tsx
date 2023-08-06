@@ -1,13 +1,11 @@
 import React from "react";
 import Layout from "@theme/Layout";
 import clsx from "clsx";
-import Marquee from "react-fast-marquee";
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { PartnerMarqueeSection } from "./PartnerMarquee";
-import { FeatureSection } from "./Feature";
-import { DiscussionsSection } from "./Discussions";
-import { WhySection } from "./Why";
-import { Download } from "./Download";
+import { PartnerMarqueeSection } from "../components/PartnerMarquee";
+import { FeatureSection } from "../components/Feature";
+import { DiscussionsSection } from "../components/Discussions";
+import { WhySection } from "../components/Why";
+import { Download } from "../components/Download";
 import styles from "./index.module.css";
 
 export default function Home(): JSX.Element {
